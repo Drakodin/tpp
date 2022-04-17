@@ -119,6 +119,9 @@ class Environment {
                 this.#local.push(String.fromCharCode(Number.parseInt(s, 2)))
                 this.resetData();
             }
+            default: {
+                break;
+            }
         }
     }
 
