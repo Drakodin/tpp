@@ -82,5 +82,5 @@ function execute() {
 
 function print() {
     let text = document.getElementById('output');
-    output.value = env.print();
+    text.value = env.print();
 }
