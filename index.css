@@ -105,3 +105,10 @@
 .at-7 {
     grid-column: 8;
 }
+
+.output-wrapper {
+    margin-top: 5%;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}

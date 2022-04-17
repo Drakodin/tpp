@@ -79,3 +79,8 @@ function execute() {
     env.update(cmd);
     resetTokens();
 }
+
+function print() {
+    let text = document.getElementById('output');
+    output.value = env.print();
+}

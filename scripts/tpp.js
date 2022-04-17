@@ -161,6 +161,6 @@ class Environment {
     }
 
     print() {
-        console.log(this.#local.join(''))
+        return this.#local.join('');
     }
 }
