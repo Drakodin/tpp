@@ -83,32 +83,38 @@ class Environment {
             // Shifts the head backwards by one. Loops to 7 if head = 0
             case "Backward": {
                 this.#head = (this.#head + 7) % 8;
+                break;
             }
             // Shifts the head forward by one. Loops to 0 if head = 7
             case "Forward": {
                 this.#head = (this.#head + 1) % 8;
+                break;
             }
             // Swaps a bit with its opposite unless locked. 0 --> 1, 1 --> 0
             case "Swap": {
                 if (!this.#data[this.#head][1]) {
                     this.#data[this.#head][0] = (this.#data[this.#head][0] + 1) % 2; 
                 }
+                break;
             }
             // Lock/Unlock a bit. Locking a bit prevents the Swap operation
             case "Lock": {
                 this.#data[this.#head][1] = !this.#data[this.#head][1];
+                break;
             }
             // Left-shifts the bit elements
             // Locked elements do not lose their lock, but their position will change.
             case "LShift": {
                 this.#data.push([0, false]);
                 this.#data.shift();
+                break;
             }
             // Right-shifts the bit elements.
             // Locked elements do not lose their lock, but their position will change.
             case "RShift": {
                 this.#data.unshift([0, false]);
                 this.#data.pop();
+                break;
             }
             // Converts the 8-bit string into its corresponding character and stores it.
             case "Save": {
@@ -118,6 +124,10 @@ class Environment {
                 })
                 this.#local.push(String.fromCharCode(Number.parseInt(s, 2)))
                 this.resetData();
+                break;
+            }
+            default: {
+                break;
             }
         }
     }
@@ -126,7 +136,7 @@ class Environment {
         this.run(cmd);
         let bits = document.getElementById('bit-root');
         let head = document.getElementById('bit-head');
-        if (bits.childNodes.length === 0) {
+        if (bits.children.length === 0) {
             this.#data.forEach(v => {
                 let bitDiv = document.createElement('div');
                 bitDiv.classList.add('bit');
