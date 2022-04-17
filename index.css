@@ -74,6 +74,10 @@
     border: 1px solid black;
 }
 
+.locked {
+    background-color: darkred;
+}
+
 .at-0 {
     grid-column: 1;
 }

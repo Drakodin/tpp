@@ -18,7 +18,7 @@ let tokenArr = [
 
 let input = document.getElementById('input');
 let palette = document.getElementById('palette');
-let currColor = "#ffffff";
+let currColor = "#000000";
 
 tokenArr.forEach((v, i) => {
     let div = document.createElement('div');
@@ -64,14 +64,28 @@ let colors = [
     '#9c59d1' 
 ]
 
-colors.forEach(v => {
+colors.forEach((v, i) => {
     let color = document.createElement('div');
     color.style.backgroundColor = v
     color.onclick = () => {
         currColor = v;
+        selectColor(i);
     }
     palette.append(color);
 });
+
+function selectColor(index) {
+    Array.from(palette.children).forEach(v => {
+        v.style.removeProperty('border');
+    })
+    if (index !== 1) {
+        palette.children[index].style.border = `solid 2px ${colors[index]}`;
+    } else {
+        palette.children[index].style.border = `solid 2px black`;
+    }   
+}
+
+selectColor(0);
 
 function execute() {
     let t = new Token(tokenArr);
